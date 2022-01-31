@@ -1,9 +1,13 @@
 import '../styles/globals.css'
 import Head from 'next/head'
+import {useState} from 'react'
 import NavBar from '../components/NavBar'
+import ApiData from '../context'
 
 function MyApp({ Component, pageProps }) {
 
+  const [apiData, setApiData] = useState('')
+  
   return (
     <>
       <Head>
@@ -14,10 +18,12 @@ function MyApp({ Component, pageProps }) {
               integrity="sha384-1BmE4kWBq78iYhFldvKuhfTAU6auU8tT94WrHftjDbrCEXSU1oBoqyl2QvZ6jIW3"
               crossOrigin="anonymous" />
       </Head>
-      <NavBar />
-      <Component {...pageProps} />
+
+      <ApiData.Provider value={[apiData, setApiData]}>
+        <NavBar />
+        <Component {...pageProps} />
+      </ApiData.Provider>
     </>
   )
 }
-
 export default MyApp
