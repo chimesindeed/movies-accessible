@@ -1,3 +1,5 @@
+import Link from 'next/link'
+import SearchBar from '../pages/searchbar'
 
 function NavBar(){
     
@@ -14,12 +16,16 @@ function NavBar(){
                 <div className="collapse navbar-collapse" id="navbarSupportedContent">
                     <ul className="navbar-nav me-auto mb-2 mb-lg-0">
                         <li className="nav-item">
-                            
+                            <Link href='/about'>
+                                <a className="nav-link">About</a>
+                            </Link>
                         </li>
                     </ul>
+
+                    <SearchBar />
                 </div>
             </div>
         </nav>
     )
 }
-export default NavBar   
+export default NavBar
