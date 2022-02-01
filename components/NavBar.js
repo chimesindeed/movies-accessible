@@ -1,5 +1,5 @@
 import Link from 'next/link'
-import SearchBar from '../pages/searchbar'
+import SearchBar from './searchbar'
 
 function NavBar(){
     
