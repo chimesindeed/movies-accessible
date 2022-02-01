@@ -1,15 +1,17 @@
+// goal is to redirect to /movies route
+// which is file index.js in movies folder
+// sending the contents of searchParam to that route
+// google redirect to route, sending parameter. next.js
 import {useState} from 'react'
+import {useRouter} from 'next/router'
 
 function SearchBar(){
-    
     const [searchParam, setSearchParam] = useState('')
+    const router = useRouter()
     
     const handleClick = (e) => {
         e.preventDefault()
-        console.log(searchParam)
-        getServerSideProps()
-        setApiData(movies)
-        console.log(apiData)
+        router.push(`/movies?query=${searchParam}`)
     }   
     
     return (
