@@ -4,7 +4,7 @@ import SearchBar from './searchbar'
 function NavBar(){
     
     return (
-        <nav className="navbar navbar-expand-lg navbar-light bg-light">
+        <nav className="navbar navbar-expand-lg navbar-light bg-light sticky-top">
             <div className="container-fluid">
                
                 <a className="navbar-brand" href="#">Movies</a>
