@@ -10,6 +10,7 @@ function Movies({movies}){
             {
                 list.map(item => {
                     try {
+<<<<<<< HEAD
                         const name = item.l;
                         const poster = item.i.imageUrl;
                         return (
@@ -21,6 +22,19 @@ function Movies({movies}){
                             />
                         )
                     } catch(e){console.log(e)}
+=======
+                    const name = item.l;
+                    const poster = item.i.imageUrl;
+                    return (
+                        <Movie
+                            key = {item.id}
+                            id = {item.id}
+                            name = {name}
+                            poster = {poster}
+                        />
+                    )
+                     } catch(e){console.log(e)}
+>>>>>>> 6205366619be416997d94f76f1dc97366f696eb8
                 })
             }
         </div>
