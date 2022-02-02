@@ -10,7 +10,7 @@ function Movie(){
             <h2>{router.query.name}</h2>
             <img src={router.query.poster}/>
         </div>
-        )
+    )
 }
 
 export default Movie
