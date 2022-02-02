@@ -1,10 +1,7 @@
 import styles from './movies.module.css'
-import {useRouter} from 'next/router'
 import ApiData from '../../context'
-
+import Movie from '../../components/movie'
 function Movies({movies}){
-    const router = useRouter();
-    
     const list = movies.d
     return (
 
@@ -14,10 +11,12 @@ function Movies({movies}){
                     const name = item.l;
                     const poster = item.i.imageUrl;
                     return (
-                        <li key={item.id}>
-                            <img src={poster}/>
-                            <h2>{name}</h2>
-                        </li>
+                        <Movie
+                            key = {item.id}
+                            id = {item.id}
+                            name = {name}
+                            poster = {poster}
+                        />
                     )
                 })
             }
@@ -27,14 +26,13 @@ function Movies({movies}){
 export default Movies
 
 export async function getServerSideProps(context){
-    if (context.query.query){ 
-        const response = await fetch("https://imdb8.p.rapidapi.com/auto-complete?q=" + context.query.query, {
-            "method": "GET",
-            "headers": {
-                "x-rapidapi-host": process.env.API_HOST,
-                "x-rapidapi-key": process.env.API_KEY
-            }
-        })
+    const response = await fetch("https://imdb8.p.rapidapi.com/auto-complete?q=" + context.query.query, {
+        "method": "GET",
+        "headers": {
+            "x-rapidapi-host": process.env.API_HOST,
+            "x-rapidapi-key": process.env.API_KEY
+        }
+    })
     
         const data = await response.json()
         context.query.query = null
@@ -42,6 +40,5 @@ export async function getServerSideProps(context){
             props: {
                 movies: data
             }
-        }
+        }    
     }
-}
