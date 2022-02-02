@@ -1,6 +1,7 @@
 import styles from './movies.module.css'
 import ApiData from '../../context'
 import Movie from '../../components/movie'
+
 function Movies({movies}){
     const list = movies.d
     return (
@@ -8,16 +9,18 @@ function Movies({movies}){
         <div id="movies" className={styles.movies}>
             {
                 list.map(item => {
-                    const name = item.l;
-                    const poster = item.i.imageUrl;
-                    return (
-                        <Movie
-                            key = {item.id}
-                            id = {item.id}
-                            name = {name}
-                            poster = {poster}
-                        />
-                    )
+                    try {
+                        const name = item.l;
+                        const poster = item.i.imageUrl;
+                        return (
+                            <Movie
+                                key = {item.id}
+                                id = {item.id}
+                                name = {name}
+                                poster = {poster}
+                            />
+                        )
+                    } catch(e){console.log(e)}
                 })
             }
         </div>
