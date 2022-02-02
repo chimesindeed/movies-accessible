@@ -8,6 +8,7 @@ function Movies({movies}){
         <div id="movies" className={styles.movies}>
             {
                 list.map(item => {
+                    try {
                     const name = item.l;
                     const poster = item.i.imageUrl;
                     return (
@@ -18,6 +19,7 @@ function Movies({movies}){
                             poster = {poster}
                         />
                     )
+                     } catch(e){console.log(e)}
                 })
             }
         </div>
