@@ -10,6 +10,7 @@ function Movies({movies}){
             {
                 list.map(item => {
                     try {
+                 
                     const name = item.l;
                     const poster = item.i.imageUrl;
                     return (
